@@ -1,4 +1,4 @@
-package com.scheduling.scheduler;
+package com.scheduling.scheduler.Employee;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.scheduling.scheduler;
+package com.scheduling.scheduler.Employee;
 
 /**
  * Unlike the employee creation, this class sends the response from the database where it can

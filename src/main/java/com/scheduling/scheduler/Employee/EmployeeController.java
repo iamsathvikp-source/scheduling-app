@@ -1,8 +1,9 @@
-package com.scheduling.scheduler;
+package com.scheduling.scheduler.Employee;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public EmployeeResponse createEmployee(@RequestBody CreateEmployeeRequest request) {
+    public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody CreateEmployeeRequest request) {
         // 1. make a new empty Employee entity
         // 2. use the setters to copy name, email, role from request into it
         // 3. save it via employeeRepository.save(...) which returns the saved entity (now with an id)
@@ -43,8 +44,7 @@ public class EmployeeController {
         EmployeeResponse employeeResponse = new EmployeeResponse(
                 newEmployee.getId(), newEmployee.getName(), newEmployee.getEmail(), newEmployee.getRole()
         );
-
-        return employeeResponse;
+        return ResponseEntity.created(URI.create("/employees/" + newEmployee.getId())).body(employeeResponse);
     }
 
     @GetMapping("/{id}")

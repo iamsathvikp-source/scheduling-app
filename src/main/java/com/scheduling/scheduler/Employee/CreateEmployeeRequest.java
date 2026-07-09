@@ -1,4 +1,4 @@
-package com.scheduling.scheduler;
+package com.scheduling.scheduler.Employee;
 
 /**
 The request body to create employee shouldn't contain id
